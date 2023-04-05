@@ -27,12 +27,13 @@ formElement.addEventListener('submit', (event) => {
   .then(res => {
     if (res.status === 200) {
       console.log('success')
-      return res.json()
+      return res.json() // return "pelda"
     } else {
       console.log('ERROR!!!')
     }
   })
-  .then(resJson => console.log(resJson))
+  .then(resData => { // resData = "pelda"
+    rootElement.insertAdjacentHTML('beforeend', `<img src="./public/${resData}.jpg">`)
+  })
   .catch(error => console.log(error))
 })
-
